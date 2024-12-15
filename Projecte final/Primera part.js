@@ -13,12 +13,14 @@ function validarFormulari() {
 
   // Nom i cognoms
   const nom = document.getElementById("nom_cognoms");
-  for (let i= 0; i==' '; i++){
-    if (nom[i+1] !== nom[i+1].toUpperCase()) {
-      document.getElementById("error-nom").textContent = "Escriviu en majúscules la primera lletra de cada paraula.";
-      errors = true;
-    } else {
-      document.getElementById("error-nom").textContent = "";
+  function majuscules(){
+    for (let i= 0; i==' '; i++){
+      if (nom[i+1] !== nom[i+1].toUpperCase()) {
+        document.getElementById("error-nom").textContent = "Escriviu en majúscules la primera lletra de cada paraula.";
+        errors = true;
+      } else {
+        document.getElementById("error-nom").textContent = "";
+      }
     }
   }
 
