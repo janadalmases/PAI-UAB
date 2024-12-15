@@ -1,27 +1,29 @@
-/*function majuscules() {
-    for (let i; i==' '; i++);
-        majuscules= nom_cognoms[n+1].toUpperCase()
-    print(majuscules); 
-}*/
-
-document.getElementById("enviar").addEventListener("click", validarFormulari);
 document.getElementById("esborrar").addEventListener("click", esborrarFormulari);
+document.getElementById("enviar").addEventListener("click", validarFormulari);
 
-  // Validacions
-  function validarFormulari() {
+// Esborrar formulari
+function esborrarFormulari() {
+  document.getElementById("formulari").reset();
+  document.querySelectorAll(".error").forEach(error => error.textContent = "");
+}
+
+// Validar formulari
+function validarFormulari() {
   let errors = false;
 
   // Nom i cognoms
-  const nom = document.getElementById("nom");
-  if (!nom.value.match(/^[A-ZÀ-ÖØ-Ý][a-zà-öø-ý]*(\s[A-ZÀ-ÖØ-Ý][a-zà-öø-ý]*)+$/)) {
-    document.getElementById("error-nom").textContent = "Escriviu un nom vàlid.";
-    errors = true;
-  } else {
-    document.getElementById("error-nom").textContent = "";
+  const nom = document.getElementById("nom_cognoms");
+  for (let i= 0; i==' '; i++){
+    if (nom[i+1] !== nom[i+1].toUpperCase()) {
+      document.getElementById("error-nom").textContent = "Escriviu en majúscules la primera lletra de cada paraula.";
+      errors = true;
+    } else {
+      document.getElementById("error-nom").textContent = "";
+    }
   }
 
   // Rang d'edats
-  const edat = document.getElementById("edat");
+  const edat = document.getElementById("rang_edats");
   if (edat.value === "") {
     document.getElementById("error-edat").textContent = "Seleccioneu un rang d'edat.";
     errors = true;
@@ -29,16 +31,16 @@ document.getElementById("esborrar").addEventListener("click", esborrarFormulari)
     document.getElementById("error-edat").textContent = "";
   }
 
-  // Codi Postal
-  const codi = document.getElementById("codi-postal");
+  // Codi postal
+  const codi = document.getElementById("codi_postal");
   if (!codi.value.match(/^\d{5}$/)) {
-    document.getElementById("error-codi").textContent = "Escriviu un codi postal vàlid.";
+    document.getElementById("error-codi").textContent = "Escriviu un codi postal vàlid (5 dígits).";
     errors = true;
   } else {
     document.getElementById("error-codi").textContent = "";
   }
 
-  // Correu Electrònic
+  // Correu electrònic
   const email = document.getElementById("email");
   if (!email.value.match(/^[^@]+@[^@]+\.[a-z]{2,}$/i)) {
     document.getElementById("error-email").textContent = "Escriviu un correu vàlid.";
@@ -49,14 +51,14 @@ document.getElementById("esborrar").addEventListener("click", esborrarFormulari)
 
   // Contrasenya
   const contrasenya = document.getElementById("contrasenya");
-  if (!contrasenya.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d)(?=.*[!@#$%^&*()_+]).{8,}$/)) {
-    document.getElementById("error-contrasenya").textContent = "Contrasenya no vàlida.";
+  if (!contrasenya.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d)(?=.*[!@#$%^&*()_+[]-={};:\|,.<>/?]).{8,}$/)) {
+    document.getElementById("error-contrasenya").textContent = "Contrasenya no vàlida: almenys 8 caràcters (una majúscula, una minúscula, dos dígits i un caràcter especial).";
     errors = true;
   } else {
     document.getElementById("error-contrasenya").textContent = "";
   }
 
-  // Confirmar Contrasenya
+  // Confirmar contrasenya
   const confirmar = document.getElementById("confirmar-contrasenya");
   if (confirmar.value !== contrasenya.value) {
     document.getElementById("error-confirmar").textContent = "Les contrasenyes no coincideixen.";
@@ -65,7 +67,7 @@ document.getElementById("esborrar").addEventListener("click", esborrarFormulari)
     document.getElementById("error-confirmar").textContent = "";
   }
 
-  // Privacitat
+  // Checkbox de privacitat
   const privacitat = document.getElementById("privacitat");
   if (!privacitat.checked) {
     document.getElementById("error-privacitat").textContent = "Accepteu la política de privacitat.";
@@ -80,10 +82,4 @@ document.getElementById("esborrar").addEventListener("click", esborrarFormulari)
   } else {
     document.getElementById("resultat").textContent = "";
   }
-}
-
-// Esborrar formulari
-function esborrarFormulari() {
-  document.getElementById("formulari").reset();
-  document.querySelectorAll(".error").forEach(error => error.textContent = "");
 }
