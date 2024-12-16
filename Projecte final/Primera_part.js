@@ -1,4 +1,17 @@
-document.getElementById("esborrar").addEventListener("click", esborrarFormulari);
+// Nom i cognoms
+const nom = document.getElementById("nom_cognoms");
+function majuscules(){
+  for (let i= 0; i==' '; i++){
+    if (nom[i+1] !== nom[i+1].toUpperCase()) {
+      document.getElementById("error-nom").textContent = "Escriviu en majúscules la primera lletra de cada paraula.";
+      errors = true;
+    } else {
+      document.getElementById("error-nom").textContent = "";
+    }
+  }
+}
+
+/*document.getElementById("esborrar").addEventListener("click", esborrarFormulari);
 document.getElementById("enviar").addEventListener("click", validarFormulari);
 
 // Esborrar formulari
@@ -35,7 +48,7 @@ function validarFormulari() {
 
   // Codi postal
   const codi = document.getElementById("codi_postal");
-  if (!codi.value.match(/^\d{5}$/)) {
+  if (!lengh codi.value.match(/^\d{5}$/)) {
     document.getElementById("error-codi").textContent = "Escriviu un codi postal vàlid (5 dígits).";
     errors = true;
   } else {
@@ -84,4 +97,4 @@ function validarFormulari() {
   } else {
     document.getElementById("resultat").textContent = "";
   }
-}
+}*/
