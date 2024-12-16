@@ -1,8 +1,9 @@
 // Nom i cognoms
 const nom = document.getElementById("nom_cognoms");
+nom.value[0]== nom.value[0].toUpperCase()
 function majuscules(){
-  for (let i= 0; i==' '; i++){
-    if (nom[i+1] !== nom[i+1].toUpperCase()) {
+  for (let i= 0; nom.value[i]==' '; i++){
+    if (nom.value[i+1] !== nom.value[i+1].toUpperCase()) {
       document.getElementById("error-nom").textContent = "Escriviu en majúscules la primera lletra de cada paraula.";
       errors = true;
     } else {
@@ -48,7 +49,7 @@ function validarFormulari() {
 
   // Codi postal
   const codi = document.getElementById("codi_postal");
-  if (!lengh codi.value.match(/^\d{5}$/)) {
+  if (length(codi)!=5) {
     document.getElementById("error-codi").textContent = "Escriviu un codi postal vàlid (5 dígits).";
     errors = true;
   } else {
