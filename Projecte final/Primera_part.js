@@ -1,25 +1,4 @@
-// Nom i cognoms
-const nom = document.getElementById("nom_cognoms");
-nom.value[0]== nom.value[0].toUpperCase()
-function majuscules(){
-  for (let i= 0; nom.value[i]==' '; i++){
-    if (nom.value[i+1] !== nom.value[i+1].toUpperCase()) {
-      document.getElementById("error-nom").textContent = "Escriviu en majúscules la primera lletra de cada paraula.";
-      errors = true;
-    } else {
-      document.getElementById("error-nom").textContent = "";
-    }
-  }
-}
-
-/*document.getElementById("esborrar").addEventListener("click", esborrarFormulari);
 document.getElementById("enviar").addEventListener("click", validarFormulari);
-
-// Esborrar formulari
-function esborrarFormulari() {
-  document.getElementById("formulari").reset();
-  document.querySelectorAll(".error").forEach(error => error.textContent = "");
-}
 
 // Validar formulari
 function validarFormulari() {
@@ -27,9 +6,10 @@ function validarFormulari() {
 
   // Nom i cognoms
   const nom = document.getElementById("nom_cognoms");
+  nom.value[0]== nom.value[0].toUpperCase()
   function majuscules(){
-    for (let i= 0; i==' '; i++){
-      if (nom[i+1] !== nom[i+1].toUpperCase()) {
+    for (let i= 0; nom.value[i]==' '; i++){
+      if (nom.value[i+1] !== nom.value[i+1].toUpperCase()) {
         document.getElementById("error-nom").textContent = "Escriviu en majúscules la primera lletra de cada paraula.";
         errors = true;
       } else {
@@ -49,48 +29,35 @@ function validarFormulari() {
 
   // Codi postal
   const codi = document.getElementById("codi_postal");
-  if (length(codi)!=5) {
+  if (codi.value.length !== 5 || isNaN(codi.value)) {
     document.getElementById("error-codi").textContent = "Escriviu un codi postal vàlid (5 dígits).";
     errors = true;
   } else {
     document.getElementById("error-codi").textContent = "";
   }
 
+
   // Correu electrònic
-  const email = document.getElementById("email");
-  if (!email.value.match(/^[^@]+@[^@]+\.[a-z]{2,}$/i)) {
-    document.getElementById("error-email").textContent = "Escriviu un correu vàlid.";
-    errors = true;
-  } else {
-    document.getElementById("error-email").textContent = "";
+  function email(){
+    const email = document.getElementById("email");
+    const emailValue = email.value;
+
+    /* Comprova que hi hagi exactament una '@'*/
+    const atIndex = emailValue.indexOf("@");
+    const lastAtIndex = emailValue.lastIndexOf("@");
+
+    // Comprova que hi hagi un punt després de la '@'
+    const hasDotAfterAt = emailValue.indexOf(".", atIndex) > atIndex;
+
+    // Condicions de validació
+    if (atIndex === -1 || atIndex !== lastAtIndex || !hasDotAfterAt) {
+      document.getElementById("error-email").textContent = "Escriviu un correu vàlid.";
+      errors = true;
+    } else {
+      document.getElementById("error-email").textContent = "";
+    }
   }
 
-  // Contrasenya
-  const contrasenya = document.getElementById("contrasenya");
-  if (!contrasenya.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d)(?=.*[!@#$%^&*()_+[]-={};:\|,.<>/?]).{8,}$/)) {
-    document.getElementById("error-contrasenya").textContent = "Contrasenya no vàlida: almenys 8 caràcters (una majúscula, una minúscula, dos dígits i un caràcter especial).";
-    errors = true;
-  } else {
-    document.getElementById("error-contrasenya").textContent = "";
-  }
-
-  // Confirmar contrasenya
-  const confirmar = document.getElementById("confirmar-contrasenya");
-  if (confirmar.value !== contrasenya.value) {
-    document.getElementById("error-confirmar").textContent = "Les contrasenyes no coincideixen.";
-    errors = true;
-  } else {
-    document.getElementById("error-confirmar").textContent = "";
-  }
-
-  // Checkbox de privacitat
-  const privacitat = document.getElementById("privacitat");
-  if (!privacitat.checked) {
-    document.getElementById("error-privacitat").textContent = "Accepteu la política de privacitat.";
-    errors = true;
-  } else {
-    document.getElementById("error-privacitat").textContent = "";
-  }
 
   // Resultat
   if (!errors) {
@@ -98,4 +65,4 @@ function validarFormulari() {
   } else {
     document.getElementById("resultat").textContent = "";
   }
-}*/
+}
