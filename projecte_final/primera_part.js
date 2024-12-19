@@ -16,7 +16,6 @@ function noms(){
       break;
     }
   }
-
   if (!majusculesCorrectes) {
     document.getElementById("error-nom").textContent = "Escriviu en majúscules la primera lletra de cada paraula.";
     errors = true;
@@ -29,24 +28,35 @@ function noms(){
 function rang_edats(){
   const edat = document.getElementById("rang_edats");
   if (edat.value === "Selecciona una opció") {
-    document.getElementById("error-edat").textContent = "Seleccioneu un rang d'edat.";
+    document.getElementById("error-edat").innerHTML = "Seleccioneu un rang d'edat.";
     errors = true;
   } else {
     document.getElementById("error-edat").textContent = "";
-    rang_edats.disabled = false;
+    // rang_edats.disabled = false;
   }
 }
 
 // Codi postal
 function codi(){
   const codi = document.getElementById("codi_postal");
-  if (codi.value.length !== 5 && (isNaN(codi.value))){
+  if ((codi.value.length !== 5) && (isNaN(codi.value))){
     document.getElementById("error-codi").textContent = "Escriviu un codi postal vàlid (5 dígits i números).";
     errors = true;
   } else {
     document.getElementById("error-codi").textContent = "";
     codi.disabled = false;
   }
+
+  /* const error= document.getElementById("error-codi");
+  const codi = document.getElementById("codi_postal");
+  if ((codi.value.length !== 5) && (isNaN(codi.value))){
+    error.textContent = "Escriviu un codi postal vàlid (5 dígits i números)."
+    return false;
+  } else {
+    error.textContent = "";
+    return true;
+    codi.disabled = false;
+  }*/
 }
 
 // Correu electrònic
@@ -119,6 +129,18 @@ function contrasenya(){
     errors = false;
     contrasenya.disabled = false;
   }
+
+  const mostrarCheckbox = document.getElementById("mostrar-confirmar");
+  // Afegim un esdeveniment al checkbox
+  mostrarCheckbox.addEventListener("change", () => {
+    if (mostrarCheckbox.checked) {
+      // Canvia el tipus de "password" a "text" per mostrar la contrasenya
+      contrasenya.type = "text";
+    } else {
+      // Torna a "password" per ocultar la contrasenya
+      contrasenya.type = "password";
+    }
+  });
 }
 
 // Confirmar contrasenya
@@ -132,6 +154,7 @@ function confirmar(){
     document.getElementById("error-confirmar").textContent = "";
     confirmar.disabled = false;
   }
+
   const mostrarCheckbox = document.getElementById("mostrar-confirmar");
   // Afegim un esdeveniment al checkbox
   mostrarCheckbox.addEventListener("change", () => {
@@ -160,7 +183,7 @@ function privacitat(){
 
 // Validar formulari
 function validarFormulari() {
-  errors = false;
+  // errors = false;
 
   // Nom i cognoms
   noms();
