@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primera part: formulari</title>
+    <link rel="stylesheet" href="primera_part_copy.js">
+</head>
+<body>
+    <h1>Primera part: FORMULARI</h1>
+    <form id="formulari">
+
+        <!-- Nom i cognoms -->
+        <label for="nom_cognoms">Nom i cognoms:</label>
+            <input type="text" id="nom_cognoms" name = "nom_cognoms" placeholder="Escriu el teu nom i cognoms" onblur="noms()">
+            <p id="error-nom" class="error"></p>
+
+        <!-- Resultat -->
+        <p id="resultat"></p>
+
+    </form>
+    <script src="primera_part_copy.js"></script>
+</body>
+</html>
