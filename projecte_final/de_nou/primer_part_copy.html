@@ -10,13 +10,21 @@
     <h1>Primera part: FORMULARI</h1>
     <form id="formulari">
 
-        <!-- Nom i cognoms -->
-        <label for="nom_cognoms">Nom i cognoms:</label>
-            <input type="text" id="nom_cognoms" name = "nom_cognoms" placeholder="Escriu el teu nom i cognoms">
-            <p id="error-nom" class="error"></p>
+        <!-- Codi postal -->
+        <label for="codi_postal">Codi postal:</label>
+            <input type="text" id="codi_postal" maxlength="5" placeholder="Escriu el teu codi postal" onblur="codi()">
+            <p id="error-codi" class="error"></p>
 
-        <!-- Resultat -->
-        <p id="resultat"></p>
+        <!-- Correu electrònic -->
+        <label for="email">Correu electrònic:</label>
+            <input type="text" id="email" placeholder="Escriu el teu correu electrònic" onblur="email()" >
+            <p id="error-email" class="error"></p>
+
+        <!-- Contrasenya -->
+        <label for="contrasenya">Contrasenya:</label>
+            <input type="password" id="contrasenya" placeholder="Escriu el teva contrasenya" onblur="contrasenya()" disabled>
+            <input type="checkbox" id="mostrar-contrasenya"> Mostra la contrasenya <br><br>
+            <p id="error-contrasenya" class="error"></p>
 
     </form>
     <script src="primera_part_copy.js"></script>

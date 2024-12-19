@@ -1,36 +1,39 @@
-let errors = false
-
-// Nom i cognoms
-let majusculesCorrectes = true
-const nom = document.getElementById("nom_cognoms");
-const nomValors = nom.value.toLowerCase().split(" "); // Divideix el text en paraules
-for (let paraula of nomValors) {
-  if (paraula[0] !== paraula[0].toUpperCase()) {
-    // Si la primera lletra no és majúscula, marca l'error
-    majusculesCorrectes = false;
-    break;
+// Codi postal
+function codi(){
+  const codi = document.getElementById("codi_postal");
+  if ((codi.length !== 5) || (true=== isNaN(codi.value))){
+    document.getElementById("error-codi").textContent = "Escriviu un codi postal vàlid (5 dígits i números).";
+    errors = true;
+  } else {
+    document.getElementById("error-codi").textContent = "";
   }
 }
 
-if (!majusculesCorrectes) {
-  document.getElementById("error-nom").textContent = "Escriviu en majúscules la primera lletra de cada paraula.";
-  errors = true;
-} else {
-  document.getElementById("error-nom").textContent = "";
-}
 
-/*for (let i = 0; i < paraules.length; i++) {
-  if (paraules[i].lenght > 0) {
-    paraules[i]= paraules[i][0].toUpperCase() + paraules[i].slice(1).toLowerCase();
+// Correu electrònic
+function email(){
+  const email = document.getElementById("email").value;
+  if (email === ""){
+    alert("Escriviu un correu.");
+    return false;
   }
-}
-nom.value= paraules.join(" ");*/
+  if (!email.includes("@") || !email.includes(".")){
+    alert("Escriviu un correu vàlid.");
+    return false;
+  }
+  return true;
+} 
 
-
-
-// Resultat
-if (!errors) {
-  document.getElementById("resultat").textContent = "Formulari enviat correctament!";
-} else {
-  document.getElementById("resultat").textContent = "";
-}
+  /*const email = document.getElementById("email");
+  // Comprova que hi hagi exactament una '@'
+  const atIndex = email.value.indexOf("@");
+  const lastAtIndex = email.value.lastIndexOf("@");
+  // Comprova que hi hagi un punt després de la '@'
+  const hasDotAfterAt = email.value.indexOf(".", atIndex) > atIndex;
+  // Condicions de validació
+  if (atIndex === -1 || atIndex !== lastAtIndex || !hasDotAfterAt) {
+    document.getElementById("error-email").textContent = "Escriviu un correu vàlid.";
+    errors = true;
+  } else {
+    document.getElementById("error-email").textContent = "";
+  }*/

@@ -47,7 +47,8 @@ function codi(){
     codi.disabled = false;
   }
 
-  /* const error= document.getElementById("error-codi");
+ /* el q ha fet m i j pels errors: 
+  const error= document.getElementById("error-codi");
   const codi = document.getElementById("codi_postal");
   if ((codi.value.length !== 5) && (isNaN(codi.value))){
     error.textContent = "Escriviu un codi postal vàlid (5 dígits i números)."
