@@ -6,7 +6,7 @@ document.getElementById("esborrar").addEventListener("click", esborrarFormulari)
 // Nom i cognoms
 function noms(){  
   const nom = document.getElementById("nom_cognoms");
-  let nomValors = nom.value.toLowerCase().trim().split(/\s+/); // Divideix el text en paraules
+  let nomValors = nom.value.trim().split(/\s+/); // Divideix el text en paraules
   let majusculesCorrectes = true;
 
   for (let paraula of nomValors) {
@@ -101,7 +101,6 @@ function confirmar(){
     errors = true;
   } else {
     document.getElementById("error-confirmar").textContent = "";
-    confirmar.disabled = false;
   }
 }
 
@@ -125,12 +124,12 @@ function privacitat(){
     errors = true;
   } else {
     document.getElementById("error-privacitat").textContent = "";
-    privacitat.disabled = false;
   }
 }
 
 // Validar formulari
 function validarFormulari() {
+  errors = false; // Reiniciar errors abans de cada validació
 
   // Nom i cognoms
   noms();
