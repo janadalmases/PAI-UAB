@@ -1,3 +1,5 @@
+let errors = false
+
 // Codi postal
 function codi(){
   const codi = document.getElementById("codi_postal");
@@ -12,7 +14,23 @@ function codi(){
 
 // Correu electrònic
 function email(){
-  const email = document.getElementById("email").value;
+  const email = document.getElementById("email").value.trim();
+  const atIndex = email.value.indexOf("@");
+  const lastAtIndex = email.value.lastIndexOf("@");
+  const hasDotAfterAt = email.value.indexOf(".", atIndex) > atIndex;
+  if (atIndex === -1 || atIndex !== lastAtIndex || !hasDotAfterAt) {
+    document.getElementById("error-email").textContent = "Escriviu un correu vàlid.";
+    errors = true;
+  } else {
+    document.getElementById("error-email").textContent = "";
+  }
+} 
+// Vinculem la validació al camp email
+document
+  .getElementById("email")
+  .addEventListener("blur", validarEmail); // Quan sortim del camp, validem
+
+  /*  const email = document.getElementById("email").value;
   if (email === ""){
     alert("Escriviu un correu.");
     return false;
@@ -22,18 +40,20 @@ function email(){
     return false;
   }
   return true;
-} 
-
-  /*const email = document.getElementById("email");
-  // Comprova que hi hagi exactament una '@'
-  const atIndex = email.value.indexOf("@");
-  const lastAtIndex = email.value.lastIndexOf("@");
-  // Comprova que hi hagi un punt després de la '@'
-  const hasDotAfterAt = email.value.indexOf(".", atIndex) > atIndex;
-  // Condicions de validació
-  if (atIndex === -1 || atIndex !== lastAtIndex || !hasDotAfterAt) {
-    document.getElementById("error-email").textContent = "Escriviu un correu vàlid.";
-    errors = true;
-  } else {
-    document.getElementById("error-email").textContent = "";
-  }*/
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  const majus= "ABCDEFGHIJKLMNOPKRSTWXYZ"
+  const min= "abcdefghijklmnopqrstwxyz"*/
