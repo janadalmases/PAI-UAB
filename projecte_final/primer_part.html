@@ -13,7 +13,7 @@
         <!-- Nom i cognoms -->
         <label for="nom_cognoms">Nom i cognoms:</label>
             <input type="text" id="nom_cognoms" name="nom_cognoms" placeholder="Escriu el teu nom i cognoms" onblur="noms()">
-            <p id="error-nom" class="error">Aqui aniria error nom</p>
+            <p id="error-nom" class="error"></p>
 
         <!-- Rang d'edats -->
         <label for="rang_edats">Rang d’edats:</label>
@@ -35,24 +35,24 @@
 
         <!-- Correu electrònic -->
         <label for="email">Correu electrònic:</label>
-            <input type="email" id="email" placeholder="Escriu el teu correu electrònic" onblur="email()" >
+            <input type="text" id="email" placeholder="Escriu el teu correu electrònic" onblur="email()" >
             <p id="error-email" class="error"></p>
 
         <!-- Contrasenya -->
         <label for="contrasenya">Contrasenya:</label>
-            <input type="password" id="contrasenya" placeholder="Escriu el teva contrasenya" onblur="contrasenya()" disabled>
-            <input type="checkbox" id="mostrar-contrasenya"> Mostra la contrasenya <br><br>
+            <input type="password" id="contrasenya" placeholder="Escriu el teva contrasenya" onblur="contrasenya()">
+            <input type="checkbox" id="mostrar-contrasenya" onblur="mostrarContrasenya()"> Mostra la contrasenya <br><br>
             <p id="error-contrasenya" class="error"></p>
 
         <!-- Confirmar contrasenya -->
         <label for="confirmar_contrasenya">Confirma la contrasenya:</label>
-            <input type="password" id="confirmar_contrasenya" placeholder="Escriu la contrasenya de nou" onblur="confirmar()" disabled>
-            <input type="checkbox" id="mostrar-confirmar"> Mostra la confirmació de la contrasenya <br><br>
+            <input type="password" id="confirmar_contrasenya" placeholder="Escriu la contrasenya de nou" onblur="confirmar()">
+            <input type="checkbox" id="mostrar-confirmar" onblur="mostrarContrasenya()"> Mostra la confirmació de la contrasenya <br><br>
             <p id="error-confirmar" class="error"></p>            
  
         <!-- Checkbox de privacitat -->
         <label>
-            <input type="checkbox" id="privacitat" onblur="privacitat()" disabled required> Accepto la política de privacitat
+            <input type="checkbox" id="privacitat" onblur="privacitat()" required> Accepto la política de privacitat
         </label>
             <p id="error-privacitat" class="error"></p>
 

@@ -1,0 +1,100 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #dac1de;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Títol */
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+/* Formulari */
+form {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Inputs i select */
+input[type="text"],
+input[type="password"],
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+/* Botons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Botons centrats */
+.botons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Error */
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin: -10px 0 10px;
+    display: block;
+}
+
+/* Resultat */
+#resultat {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #4CAF50;
+    text-align: center;
+}
+
+/* Focus */
+input:focus,
+select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}

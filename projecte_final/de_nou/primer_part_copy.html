@@ -4,11 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primera part: formulari</title>
-    <link rel="stylesheet" href="primera_part_copy.js">
+    <link rel="stylesheet" href="primera_part_copy.css">
 </head>
 <body>
     <h1>Primera part: FORMULARI</h1>
     <form id="formulari">
+
+        <!-- Nom i cognoms -->
+        <label for="nom_cognoms">Nom i cognoms:</label>
+            <input type="text" id="nom_cognoms" name="nom_cognoms" placeholder="Escriu el teu nom i cognoms" onblur="noms()">
+            <p id="error-nom" class="error"></p>
+
+        <!-- Rang d'edats -->
+        <label for="rang_edats">Rang d’edats:</label>
+            <select id="rang_edats" name="rang_edats" onblur="rang_edats()" >
+                <option value="Selecciona una opció">Selecciona una opció</option>
+                <option value="0-17">0-17</option>
+                <option value="18-25">18-25</option>
+                <option value="26-40">26-40</option>
+                <option value="41-55">41-55</option>
+                <option value="56-65">56-65</option>
+                <option value="Més de 65">Més de 65</option>
+            </select>
+            <p id="error-edat" class="error"></p>
 
         <!-- Codi postal -->
         <label for="codi_postal">Codi postal:</label>
@@ -17,14 +35,35 @@
 
         <!-- Correu electrònic -->
         <label for="email">Correu electrònic:</label>
-            <input type="text" id="email" placeholder="Escriu el teu correu electrònic" onblur="email()" >
+            <input type="text" id="email" placeholder="Escriu el teu correu electrònic" onblur="validarEmail()">
             <p id="error-email" class="error"></p>
 
         <!-- Contrasenya -->
         <label for="contrasenya">Contrasenya:</label>
-            <input type="password" id="contrasenya" placeholder="Escriu el teva contrasenya" onblur="contrasenya()" disabled>
-            <input type="checkbox" id="mostrar-contrasenya"> Mostra la contrasenya <br><br>
+            <input type="password" id="contrasenya" placeholder="Escriu la teva contrasenya" onblur="validarContrasenya()">
+            <input type="checkbox" id="mostrar-contrasenya" onchange="mostrarContrasenya()"> Mostra la contrasenya <br><br>
             <p id="error-contrasenya" class="error"></p>
+
+        <!-- Confirmar contrasenya -->
+        <label for="confirmar_contrasenya">Confirma la contrasenya:</label>
+            <input type="password" id="confirmar_contrasenya" placeholder="Escriu la contrasenya de nou" onblur="confirmar()">
+            <input type="checkbox" id="mostrar-confirmar" onchange="mostrarConfirmacio()"> Mostra la confirmació de la contrasenya <br><br>
+            <p id="error-confirmar" class="error"></p>   
+
+        <!-- Checkbox de privacitat -->
+        <label>
+            <input type="checkbox" id="privacitat" onblur="privacitat()" required> Accepto la política de privacitat
+        </label>
+            <p id="error-privacitat" class="error"></p>
+
+        <!-- Botons -->
+        <div class="botons">
+            <button type="button" id="esborrar">Esborrar</button>
+            <button type="submit" id="enviar">Enviar</button>
+        </div>
+
+        <!-- Resultat -->
+        <p id="resultat"></p>
 
     </form>
     <script src="primera_part_copy.js"></script>

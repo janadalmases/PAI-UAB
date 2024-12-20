@@ -37,26 +37,14 @@ function rang_edats(){
 }
 
 // Codi postal
-function codi() {
-  const codi = document.getElementById("codi_postal").value;
-  if (codi.length !== 5 || isNaN(codi)) {
-      document.getElementById("error-codi").textContent = "Escriviu un codi postal vàlid (5 dígits).";
-  } else {
-      document.getElementById("error-codi").textContent = "";
-  }
-}
-
- /* el q ha fet m i j pels errors: 
-  const error= document.getElementById("error-codi");
+function codi(){
   const codi = document.getElementById("codi_postal");
-  if ((codi.value.length !== 5) && (isNaN(codi.value))){
-    error.textContent = "Escriviu un codi postal vàlid (5 dígits i números)."
-    return false;
+  if ((codi.length !== 5) || (true=== isNaN(codi.value))){
+    document.getElementById("error-codi").textContent = "Escriviu un codi postal vàlid (5 dígits i números).";
+    errors = true;
   } else {
-    error.textContent = "";
-    return true;
-    codi.disabled = false;
-  }*/
+    document.getElementById("error-codi").textContent = "";
+  }
 }
 
 // Correu electrònic
@@ -129,18 +117,13 @@ function contrasenya(){
     errors = false;
     contrasenya.disabled = false;
   }
+}
 
-  const mostrarCheckbox = document.getElementById("mostrar-confirmar");
-  // Afegim un esdeveniment al checkbox
-  mostrarCheckbox.addEventListener("change", () => {
-    if (mostrarCheckbox.checked) {
-      // Canvia el tipus de "password" a "text" per mostrar la contrasenya
-      contrasenya.type = "text";
-    } else {
-      // Torna a "password" per ocultar la contrasenya
-      contrasenya.type = "password";
-    }
-  });
+// Mostrar o amagar la contrasenya
+function mostrarContrasenya() {
+  const contrasenya = document.getElementById("contrasenya");
+  const checkbox = document.getElementById("mostrar-contrasenya");
+  contrasenya.type = checkbox.checked ? "text" : "password";
 }
 
 // Confirmar contrasenya
@@ -199,6 +182,9 @@ function validarFormulari() {
 
   // Contrasenya
   contrasenya();
+
+  // Mostrar o amagar la contrasenya
+  mostrarContrasenya()
   
   // Confirmar contrasenya
   confirmar();
