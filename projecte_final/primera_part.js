@@ -37,15 +37,14 @@ function rang_edats(){
 }
 
 // Codi postal
-function codi(){
-  const codi = document.getElementById("codi_postal");
-  if ((codi.value.length !== 5) && (isNaN(codi.value))){
-    document.getElementById("error-codi").textContent = "Escriviu un codi postal vàlid (5 dígits i números).";
-    errors = true;
+function codi() {
+  const codi = document.getElementById("codi_postal").value;
+  if (codi.length !== 5 || isNaN(codi)) {
+      document.getElementById("error-codi").textContent = "Escriviu un codi postal vàlid (5 dígits).";
   } else {
-    document.getElementById("error-codi").textContent = "";
-    codi.disabled = false;
+      document.getElementById("error-codi").textContent = "";
   }
+}
 
  /* el q ha fet m i j pels errors: 
   const error= document.getElementById("error-codi");
